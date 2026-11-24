@@ -19,28 +19,15 @@ A selection of my geospatial projects. Click any card to see the full write-up.
 <div class="grid" markdown>
 
 <div class="project-card" markdown>
-![](../assets/images/drone.png)
+![](../assets/images/guwahati_ndvi.png)
 
-**[Drone Processing](Drone-Processing.md)**
+**[Cloud-Native Sentinel-2 Workflow: Guwahati](Cloud-Native-Sentinel2.md)**
 
-[YOUR PROJECT DESCRIPTION — one or two sentences: what you did, what data you used,
-and what you found or built.]
+A cloud-native Earth observation pipeline for Guwahati, Assam. Sentinel-2 scenes were found through a STAC API, loaded lazily into an Xarray data cube, stored as Zarr, and used to derive a false-colour composite and NDVI vegetation map.
 
-`Pix4D` `Digital Surface Model` `3D Visualisation`
+`STAC` `Xarray` `Zarr` `Sentinel-2` `NDVI` `Python`
 
-[View Project →](Drone-Processing.md){ .md-button }
-</div>
-
-<div class="project-card" markdown>
-![](../assets/images/kazirangaflood.png)
-
-**[Flood Susceptibility Mapping of Kaziranga National Park](Flood-Susceptibility.md)**
-
-A GIS-based Weighted Overlay Analysis of flood susceptibility in Kaziranga National Park, Assam. Six terrain, hydrological, climatic and land cover layers from 2017 were combined into a single index and classified into four susceptibility zones.
-
-`Weighted Overlay` `ArcMap` `Google Earth Engine` `Flood Mapping`
-
-[View Project →](Flood-Susceptibility.md){ .md-button }
+[View Project →](Cloud_Native_Sentinel2_Guwahati.ipynb){ .md-button }
 </div>
 
 <div class="project-card" markdown>
@@ -56,15 +43,28 @@ Mapped 2024 country-level population and population density worldwide by joining
 </div>
 
 <div class="project-card" markdown>
-![](../assets/images/guwahati_ndvi.png)
+![](../assets/images/kazirangaflood.png)
 
-**[Cloud-Native Sentinel-2 Workflow: Guwahati](Cloud-Native-Sentinel2.md)**
+**[Flood Susceptibility Mapping of Kaziranga National Park](Flood-Susceptibility.md)**
 
-A cloud-native Earth observation pipeline for Guwahati, Assam. Sentinel-2 scenes were found through a STAC API, loaded lazily into an Xarray data cube, stored as Zarr, and used to derive a false-colour composite and NDVI vegetation map.
+A GIS-based Weighted Overlay Analysis of flood susceptibility in Kaziranga National Park, Assam. Six terrain, hydrological, climatic and land cover layers from 2017 were combined into a single index and classified into four susceptibility zones.
 
-`STAC` `Xarray` `Zarr` `Sentinel-2` `NDVI` `Python`
+`Weighted Overlay` `ArcMap` `Google Earth Engine` `Flood Mapping`
 
-[View Project →](Cloud_Native_Sentinel2_Guwahati.ipynb){ .md-button }
+[View Project →](Flood-Susceptibility.md){ .md-button }
+</div>
+
+<div class="project-card" markdown>
+![](../assets/images/drone.png)
+
+**[Drone Processing](Drone-Processing.md)**
+
+[YOUR PROJECT DESCRIPTION — one or two sentences: what you did, what data you used,
+and what you found or built.]
+
+`Pix4D` `Digital Surface Model` `3D Visualisation`
+
+[View Project →](Drone-Processing.md){ .md-button }
 </div>
 
 </div>

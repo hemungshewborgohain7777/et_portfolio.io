@@ -1,70 +1,86 @@
 # Drone Processing
 
-![Project overview image](../assets/images/drone.png)
+![Orthomosaic overlays of the three study areas in 3D](../assets/images/drone.png)
 
 ## Overview
 
-<!-- I mapped flood susceptibility in Kaziranga National Park, a UNESCO World Heritage Site on the Brahmaputra floodplain, using a GIS-based multi-criteria Weighted Overlay Analysis. I combined six terrain, hydrological, climatic and land cover layers from 2017 into a single susceptibility index. The map can help with flood preparedness and wildlife protection planning in the park.
+I processed overlapping drone images of three very different landscapes in Pix4D, an urban neighbourhood in Assam, an open-pit mine in Switzerland and a village in Karnataka. For each area I generated a Point Cloud, Orthomosaic, Digital Surface Model (DSM), Digital Terrain Model (DTM) and Contours. The orthomosaics were then draped over the terrain in ArcScene for 3D visualisation.
 
-**Study Area:** Kaziranga National Park, Assam, India (~431.83 km²)  
-**Duration:** March 2026 – March 2026 (16 March – 30 March)  
+**Study Areas:** Urban area (Panjabari, Assam), mining area (Switzerland), village area (Karnataka)  
+**Completed:** August 2026  
+**Context:** PG Diploma in Geoinformatics, Accelcraft Institute of Geoinformatics Technology  
 **Role:** Solo project  
-**Status:** Completed -->
+**Status:** Completed
 
 ---
 
 ## Methods & Tools
 
 **Data Sources**
-<!-- 
-- Park boundary: World Database on Protected Areas (WDPA) via Protected Planet
-- Elevation: SRTM DEM (30 m) via Google Earth Engine
-- Land cover: Landsat 8 Level-2, Collection 2, Tier 1 surface reflectance (2017) via Google Earth Engine
-- Rainfall: CHIRPS daily precipitation, aggregated to 2017 annual totals in Google Earth Engine
-- River network: HydroRIVERS (HydroSHEDS) -->
+
+- Overlapping drone (UAV) image sets for three areas of interest (AOIs)
+- Esri satellite imagery as the QGIS basemap for checking the outputs
 
 **Processing Steps**
-<!-- 
-1. Filled voids and sinks in the DEM, then derived slope and flow accumulation.
-2. Clipped all layers to the park boundary, projected them to WGS 84 / UTM Zone 46N, and resampled them to a common 30 m grid.
-3. Classified Landsat 8 imagery into five land cover classes: water body, dense forest, agriculture, sandbar and grassland.
-4. Reclassified every layer to a 1–5 susceptibility scale. Low elevation, gentle slope and short distance to rivers score high. High flow accumulation and high rainfall also score high.
-5. Assigned influence weights (summing to 100%) and ran the Weighted Overlay in ArcMap using FSI = Σ(Wᵢ × Xᵢ).
-6. Classified the output into Low, Moderate, High and Very High zones and calculated the area of each. -->
 
-**Layer Weights**
-
-<!-- | Layer | Influence |
-|-------|-----------|
-| Euclidean Distance from River | 25% |
-| Flow Accumulation | 20% |
-| Annual Rainfall | 20% |
-| Land Use / Land Cover | 15% |
-| Digital Elevation Model | 10% |
-| Slope | 10% |
+1. Imported the drone images for each AOI into a new Pix4D project.
+2. Aligned and calibrated the images using Structure from Motion (SfM), which reconstructs the terrain from overlapping photographs.
+3. Generated a dense Point Cloud for each area.
+4. Produced the DSM (surface including trees and buildings), the DTM (bare earth) and the Orthomosaic.
+5. Derived Contours from the DTM.
+6. Overlaid the orthomosaic and contours on the Esri satellite basemap in QGIS to check alignment.
+7. Draped each orthomosaic over its terrain in ArcScene for 3D visualisation.
 
 **Tools Used**
 
 | Tool | Purpose |
 |------|---------|
-| ArcMap 10.8 (Spatial Analyst) | Terrain derivatives, Euclidean distance, reclassification and Weighted Overlay |
-| Google Earth Engine | Accessing SRTM and Landsat 8, and aggregating CHIRPS rainfall |
-| HydroSHEDS / HydroRIVERS | River network for distance and stream analysis | -->
+| Pix4D | Image alignment, Point Cloud, Orthomosaic, DSM, DTM and Contours |
+| QGIS | Overlaying orthomosaics and contours on the Esri satellite basemap |
+| ArcScene | 3D visualisation of the orthomosaics |
+| Agisoft Metashape | Studied as an alternative photogrammetry workflow (alignment, dense cloud, mesh, texture) |
+
+---
+
+## Outputs
+
+| Output | What it shows | Typical uses |
+|--------|---------------|--------------|
+| Point Cloud | Millions of 3D (X, Y, Z) points describing terrain, vegetation and buildings | Terrain analysis, 3D visualisation, volume calculation |
+| Orthomosaic | Geometrically corrected, stitched aerial map | Land cover mapping, urban planning, infrastructure monitoring |
+| DSM | Elevation of the surface including trees and buildings | Building heights, flood modelling, line-of-sight analysis |
+| DTM | Bare-earth elevation | Watershed analysis, slope, hydrological modelling |
+| Contours | Lines of equal elevation derived from the DTM | Topographic mapping, route planning, engineering surveys |
+
+### Orthomosaics with Contours (QGIS)
+
+![Urban area, Panjabari, Assam](../assets/images/drone_urban_orthomosaic.jpg)
+*Urban area, Panjabari, Assam*
+
+![Mining area, Switzerland](../assets/images/drone_mining_orthomosaic.jpg)
+*Mining area, Switzerland. Dense contour lines trace the terraced pit walls.*
+
+![Village area, Karnataka](../assets/images/drone_village_orthomosaic.jpg)
+*Village area, Karnataka*
+
+### 3D Visualisation (ArcScene)
+
+![Urban area in 3D](../assets/images/drone_urban_3d.jpg)
+*Urban area, Panjabari, Assam*
+
+![Mining area in 3D](../assets/images/drone_mining_3d.jpg)
+*Mining area, Switzerland*
+
+![Village area in 3D](../assets/images/drone_village_3d.jpg)
+*Village area, Karnataka*
 
 ---
 
 ## Key Findings
 
-<!-- - **70.73%** of the park (305.41 km²) falls in the **Moderate** susceptibility class.
-- **24.19%** (104.45 km²) falls in the **High** class, concentrated in low-lying areas and along river channels.
-- **Low** susceptibility covers 21.94 km² (5.08%), and **Very High** only 0.03 km² (0.01%).
-- Elevation across the study extent ranges from 52 m to 785 m, and 2017 annual rainfall from about 2,110 to 2,760 mm.
-- Terrain is mostly low and gentle-sloped, and the river network is dense. This explains why most of the park falls in the Moderate to High classes.
-- Limitations: the model used a 30 m DEM and single-year rainfall, and it has no quantitative validation against historical flood extents. Future work could add Sentinel-1 SAR validation, AHP-based weights and machine learning models. -->
-
----
-
-## Links
-
-<!-- [View Code on GitHub](https://github.com/hemungshewborgohain7777/Weighted-Overlay-Analysis){ .md-button }
-[View Data Source](https://www.hydrosheds.org/){ .md-button } -->
+- Pix4D produced a full set of outputs (Point Cloud, Orthomosaic, DSM, DTM and Contours) for all three areas, even though they differ in terrain and land use.
+- The **mining area** shows the clearest relief. Tightly spaced contours follow the stepped benches of the pit, and the 3D view makes the benches easy to see.
+- The **urban** and **village** areas are gentler, so their contours are sparse. Their orthomosaics are most useful for mapping buildings, roads and land use.
+- Draping the orthomosaics in ArcScene turns flat maps into models that are easier to interpret and present.
+- The same outputs support surveying, mining volume estimates, hydrology and urban planning.
+- Limitations: positional accuracy depends on georeferencing, and adding Ground Control Points (GCPs) would improve it. Future work could compare Pix4D against Agisoft Metashape on the same image sets and calculate stockpile or pit volumes for the mine.
