@@ -15,7 +15,7 @@ Feel free to reach out through any of the channels below.
 |---|---|
 | :material-email: **Email** | [hemungshewborgohain7777@gmail.com](mailto:hemungshewborgohain7777@gmail.com) |
 | :fontawesome-brands-github: **GitHub** | [hemungshewborgohain7777](https://github.com/hemungshewborgohain7777) |
-| :fontawesome-brands-linkedin: **LinkedIn** | [Hemungshew Borgohain](https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE) |
+| :fontawesome-brands-linkedin: **LinkedIn** | [Hemungshew Borgohain](https://www.linkedin.com/in/et7777) |
 
 ---
 

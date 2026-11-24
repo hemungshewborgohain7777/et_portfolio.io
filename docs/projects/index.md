@@ -19,29 +19,55 @@ A selection of my geospatial projects. Click any card to see the full write-up.
 <div class="grid" markdown>
 
 <div class="project-card" markdown>
-![](../assets/images/placeholder-project.png)
+![](../assets/images/drone.png)
 
-**[Sample Project](sample-project.md)**
+**[Drone Processing](Drone-Processing.md)**
 
 [YOUR PROJECT DESCRIPTION — one or two sentences: what you did, what data you used,
 and what you found or built.]
 
-`[TOOL 1]` `[TOOL 2]` `[TOOL 3]`
+`Pix4D` `Digital Surface Model` `3D Visualisation`
 
-[View Project →](sample-project.md){ .md-button }
+[View Project →](Drone-Processing.md){ .md-button }
 </div>
 
 <div class="project-card" markdown>
-![](../assets/images/placeholder-notebook.png)
+![](../assets/images/kazirangaflood.png)
 
-**[Sample Notebook](sample-notebook.ipynb)**
+**[Flood Susceptibility Mapping of Kaziranga National Park](Flood-Susceptibility.md)**
 
-[YOUR PROJECT DESCRIPTION — one or two sentences: what you did, what data you used,
-and what you found or built.]
+A GIS-based Weighted Overlay Analysis of flood susceptibility in Kaziranga National Park, Assam. Six terrain, hydrological, climatic and land cover layers from 2017 were combined into a single index and classified into four susceptibility zones.
 
-`Python` `pandas` `Folium`
+`Weighted Overlay` `ArcMap` `Google Earth Engine` `Flood Mapping`
 
-[View Project →](sample-notebook.ipynb){ .md-button }
+[View Project →](Flood-Susceptibility.md){ .md-button }
+</div>
+
+<div class="project-card" markdown>
+![](../assets/images/world.png)
+
+**[World Population Mapping](World_Population_Mapping.ipynb)**
+
+Mapped 2024 country-level population and population density worldwide by joining World Bank population data to world country boundaries. The density map on a logarithmic scale shows that Malta and Bangladesh are the most densely populated countries.
+
+`jupyter` `geopandas` `pandas` `matplotlib` `request`
+
+[View Project →](World_Population_Mapping.ipynb){ .md-button }
+</div>
+
+<div class="project-card" markdown>
+![](../assets/images/guwahati_ndvi.png)
+
+**[Cloud-Native Sentinel-2 Workflow: Guwahati](Cloud-Native-Sentinel2.md)**
+
+A cloud-native Earth observation pipeline for Guwahati, Assam. Sentinel-2 scenes were found through a STAC API, loaded lazily into an Xarray data cube, stored as Zarr, and used to derive a false-colour composite and NDVI vegetation map.
+
+`STAC` `Xarray` `Zarr` `Sentinel-2` `NDVI` `Python`
+
+[View Project →](Cloud_Native_Sentinel2_Guwahati.ipynb){ .md-button }
 </div>
 
 </div>
+
+
+<!-- mkdocs serve --livereload -->

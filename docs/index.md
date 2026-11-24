@@ -107,7 +107,6 @@ I am an aspiring Geospatial Professional pursuing an MSc in Applied Geoinformati
     - Point cloud classification: Bentley Microstation
 </div>
 
-
 ---
 
 ## Connect
